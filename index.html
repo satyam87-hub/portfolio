@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satyam Baranwal | Dynamic Portfolio</title>
+
+<style>
+:root {
+  --primary: #ff6b6b;
+  --secondary: #feca57;
+  --accent: #48dbfb;
+  --dark: #1b1b2f;
+  --light: #f1f2f6;
+  --glass: rgba(255,255,255,0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(-45deg, #1b1b2f, #162447, #1f4068, #e43f5a);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: var(--light);
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+header {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+header p {
+  margin-top: 12px;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  backdrop-filter: blur(18px);
+  padding: 25px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.4);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.card p, .card li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+ul { list-style: none; }
+
+.skill-bar { margin: 12px 0; }
+
+.progress {
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress div {
+  height: 10px;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  transition: width 1.8s ease-in-out;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(254, 202, 87, 0.5);
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.8;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.modal-content {
+  background: #162447;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal.show { visibility: visible; opacity: 1; }
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  color: var(--secondary);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Satyam Baranwal</h1>
+  <p><strong>Machine Learning Enthusiast | Marketing & Sales Strategist</strong></p>
+  <p>B.Tech Computer Science Engineering (2023 - 2027)</p>
+  <p>Lovely Professional University, India</p>
+</header>
+
+<section class="container">
+
+<div class="card reveal">
+  <h2>Professional Profile</h2>
+  <p>Highly motivated Computer Science undergraduate specializing in Python development, Machine Learning, and Computer Vision. Strong foundation in business strategy, marketing analytics, and sales optimization. Passionate about combining AI with business intelligence to create scalable, real-world solutions.</p>
+</div>
+
+<div class="card reveal">
+  <h2>Technical Expertise</h2>
+  <ul>
+    <li><strong>Programming:</strong> Python, Java (JDBC)</li>
+    <li><strong>Libraries:</strong> NumPy, Pandas, OpenCV (Learning)</li>
+    <li><strong>Concepts:</strong> Machine Learning, Data Analysis, Computer Vision</li>
+    <li><strong>Database:</strong> MySQL (JDBC Connectivity)</li>
+  </ul>
+</div>
+
+<div class="card reveal">
+  <h2>Business & Analytical Skills</h2>
+  <ul>
+    <li>Marketing Strategy Development</li>
+    <li>Sales Funnel Optimization</li>
+    <li>Customer Behavior Analysis</li>
+    <li>Data-Driven Decision Making</li>
+  </ul>
+</div>
+
+<div class="card reveal">
+  <h2>Academic Projects</h2>
+  <p><strong>1. Learning Management System (Java + JDBC)</strong></p>
+  <ul>
+    <li>Designed role-based login system (Admin/Student).</li>
+    <li>Implemented course management & result tracking.</li>
+    <li>Integrated database connectivity using JDBC.</li>
+  </ul>
+  <br>
+  <p><strong>2. Hospital Management System</strong></p>
+  <ul>
+    <li>Developed patient registration and appointment modules.</li>
+    <li>Managed doctor scheduling and billing system.</li>
+    <li>Structured relational database for efficient data handling.</li>
+  </ul>
+</div>
+
+<div class="card reveal">
+  <h2>Education</h2>
+  <p><strong>Bachelor of Technology - Computer Science Engineering</strong></p>
+  <p>Lovely Professional University</p>
+  <p>2023 – 2027</p>
+</div>
+
+<div class="card reveal">
+  <h2>Certifications & Continuous Learning</h2>
+  <ul>
+    <li>Python for Data Science</li>
+    <li>Machine Learning Fundamentals</li>
+    <li>Computer Vision Basics</li>
+    <li>Digital Marketing & Branding</li>
+  </ul>
+</div>
+
+<div class="card reveal">
+  <h2>Key Strengths</h2>
+  <ul>
+    <li>Strong Analytical & Problem-Solving Skills</li>
+    <li>Quick Learner & Adaptive</li>
+    <li>Leadership & Team Collaboration</li>
+    <li>Excellent Communication & Negotiation Skills</li>
+  </ul>
+</div>
+
+<div class="card reveal">
+  <h2>Career Objective</h2>
+  <p>To build a strong career as a Machine Learning Engineer while leveraging business and marketing knowledge to develop intelligent systems that drive measurable growth and innovation.</p>
+</div>
+
+<div class="card reveal">
+  <h2>Contact Information</h2>
+  <p><strong>Email:</strong> your_current_email@example.com</p>
+  <p><strong>Phone:</strong> 9161008700</p>
+  <p><strong>Location:</strong> Uttar Pradesh, India</p>
+  <button onclick="openModal()">Connect With Me</button>
+</div>
+
+</section>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Let's Connect</h2>
+    <p>I am open to internships, collaborations, and technical opportunities in Machine Learning, Data Science, and Business Analytics.</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Satyam Baranwal | Professional Portfolio</p>
+</footer>
+
+<script>
+window.addEventListener("load", () => {
+  document.querySelectorAll(".progress div").forEach(bar => {
+    bar.style.width = bar.getAttribute("data-width");
+  });
+});
+
+function openModal() {
+  document.getElementById("modal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("show");
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+  reveals.forEach(element => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      element.classList.add("active");
+    }
+  });
+}
+</script>
+
+</body>
+</html>
